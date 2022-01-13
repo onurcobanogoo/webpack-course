@@ -1,0 +1,23 @@
+$color-white: #fff;
+$primary-color: #4433ff;
+
+.o-btn {
+  min-width: 130px;
+  height: 40px;
+  color: $color-white;
+  padding: 5px 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  outline: none;
+  border-radius: 5px;
+  border: 2px solid $primary-color;
+  background: $primary-color;
+}
+
+.o-btn:hover {
+  background: $color-white;
+  color: $primary-color;
+}
