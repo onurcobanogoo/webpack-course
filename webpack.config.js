@@ -1,17 +1,20 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const devMode = process.env.NODE_ENV !== "production";
+
 
 module.exports = {
     entry: './src/index.js',
     output: {
-        filename: 'bundle.[contenthash].js',
+        filename: devMode ? "bundle.js" : 'bundle.[contenthash].js',
+        chunkFilename: devMode ? "[id].js" : "[id].[contenthash].js",
         path: path.resolve(__dirname, './dist'),
     },
-    mode: 'none',
+    mode: 'development',
     optimization: {
-        minimize: true,
+        minimize: !devMode,
     },
     module: {
         rules: [
@@ -46,9 +49,12 @@ module.exports = {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: 'styles.[contenthash].css'
+            filename: devMode ? "styles.css" : "styles.[contenthash].css",
+            chunkFilename: devMode ? "[id].css" : "[id].[contenthash].css",
         }),
         new CleanWebpackPlugin(),
-        new HtmlWebpackPlugin()
+        new HtmlWebpackPlugin({
+            minify: false
+        })
     ]
 };
