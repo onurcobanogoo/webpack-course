@@ -1,11 +1,13 @@
 import './o-btn.scss'
 
 class Button {
+    buttonText = "Click!"
+
     render() {
         const body = document.querySelector('body');
 
         const button = document.createElement('button');
-        button.innerText = "Click!";
+        button.innerText = this.buttonText;
         button.classList.add("o-btn");
 
         body.appendChild(button);
