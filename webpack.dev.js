@@ -5,7 +5,7 @@ const path = require('path');
 module.exports = merge(common, {
     mode: 'development',
     output: {
-        filename: 'bundle.js',
+        filename: '[name].js',
         chunkFilename: '[id].js',
     },
     devServer: {
@@ -19,6 +19,7 @@ module.exports = merge(common, {
         hot: true,
         port: 3000,
         devMiddleware: {
+            index: 'index.html',
             writeToDisk: true,
         },
     },

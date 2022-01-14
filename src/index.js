@@ -1,4 +1,4 @@
-import Button from './components/button.js'
+import Button from './components/button/button.js'
 
 const clickButton = new Button();
 

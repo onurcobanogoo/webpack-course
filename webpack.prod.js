@@ -5,7 +5,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = merge(common, {
     mode: 'production',
     output: {
-        filename: 'bundle.[contenthash].js',
+        filename: '[name].[contenthash].js',
         chunkFilename: '[id].[contenthash].js',
     },
     optimization: {
@@ -25,7 +25,7 @@ module.exports = merge(common, {
     },
     plugins: [
         new MiniCssExtractPlugin({
-            filename: 'styles.[contenthash].css',
+            filename: '[name].[contenthash].css',
             chunkFilename: '[id].[contenthash].css',
         })
     ]
