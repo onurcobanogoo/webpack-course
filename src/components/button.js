@@ -1,7 +1,7 @@
 import './o-btn.scss'
 
 class Button {
-    buttonText = "Click!!"
+    buttonText = "Click!"
 
     render() {
         const body = document.querySelector('body');
